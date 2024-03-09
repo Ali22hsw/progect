@@ -181,7 +181,7 @@ html {
 
 body {
   background-color: #ffffff;
-  color: var(--white);
+  color:green;
   font-family: var(--fontFamily-dm_sans);
   font-size: var(--fontSize-body-4);
   font-weight: var(--weight-regular);
@@ -417,7 +417,7 @@ color: #141414; margin-bottom: 1rem; }
 }
 
 .section-subtitle::after {
-  content: url('../images/separator.svg');
+  content: url('../assets/images/separator.svg');
   display: block;
   width: 100px;
   margin-inline: auto;
@@ -1462,7 +1462,7 @@ color: var(--gold-crayola);
   top: 0;
   width: 15px;
   height: 100%;
-  background-image: url("../images/footer-form-pattern.svg");
+  background-image: url("../assets/images/footer-form-pattern.svg");
 }
 
 .footer-brand::before { left: 0; }
