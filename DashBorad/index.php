@@ -11,6 +11,7 @@ if ($conn->connect_error) {
 
 $department_id = null;
 $username = null;
+$usertype = null;
 // Check if the authToken cookie is set
 if (isset($_COOKIE["authToken"])) {
     // authToken cookie is set, continue with the restricted page logic
@@ -25,6 +26,7 @@ if (isset($_COOKIE["authToken"])) {
         $user = $result->fetch_assoc();
         $department_id = $user["department_id"];
         $username = $user["username"];
+        $usertype = $user["user_type"];
     } else {
         // User is not authenticated, redirect to login page
         header("Location: ../login/login.html");
@@ -312,8 +314,13 @@ if (isset($_COOKIE["authToken"])) {
 
 
     <?php
-        $sql = "SELECT * FROM `info` WHERE Government_department=$department_id";
-        $result = mysqli_query($conn, $sql);
+        if($usertype == 1){
+            $sql = "SELECT * FROM `info` WHERE Government_department=$department_id";
+            $result = mysqli_query($conn, $sql);
+        }else if ($usertype == 2){
+            $sql = "SELECT * FROM `info`";
+            $result = mysqli_query($conn, $sql);
+        }
     ?>
 
     <script>
