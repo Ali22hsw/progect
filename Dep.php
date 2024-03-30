@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "complaints";
 
 // Create connection
@@ -55,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Display an error message if any field is empty
         echo "<p class='error-message'>يرجى ملء جميع الحقول!</p>";
     }
+}
 }
 
 // Close connection
