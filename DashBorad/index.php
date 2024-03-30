@@ -9,6 +9,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+$department_id = null;
+$username = null;
 // Check if the authToken cookie is set
 if(isset($_COOKIE["authToken"])) {
     // authToken cookie is set, continue with the restricted page logic
@@ -20,6 +22,9 @@ if(isset($_COOKIE["authToken"])) {
 
     if ($result->num_rows > 0) {
         // User is authenticated, you can continue with the restricted page logic
+        $user = $result->fetch_assoc();
+        $department_id = $user["department_id"];
+        $username = $user["username"];
     } else {
         // User is not authenticated, redirect to login page
         header("Location: ../login/login.html");
@@ -27,9 +32,7 @@ if(isset($_COOKIE["authToken"])) {
     }
 } else {
     // authToken cookie is not set, redirect to login page
-    // header("Location: ../login/login.html");
-    die("something");
-    exit();
+    header("Location: ../login/login.html");
 }
 ?>
 
@@ -215,7 +218,7 @@ if(isset($_COOKIE["authToken"])) {
                 </div>
                     <div class="profile">
                         <div class="info">
-                            <p>اهلا<b> علي </b></p>
+                            <p>اهلا<b> <?= $username ?> </b></p>
                             <small class="text-muted">المالك</small>
                         </div>
                     
