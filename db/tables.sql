@@ -16,6 +16,7 @@ CREATE TABLE users (
     username VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     department_id INT,
+    auth_token VARCHAR(60), -- authenticating user
     user_type INT NOT NULL DEFAULT 0 -- 0: citizen, 1: employee, 2: admin
 )
 

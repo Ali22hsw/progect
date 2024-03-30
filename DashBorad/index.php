@@ -1,3 +1,41 @@
+<?php 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "complaints";
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Check if the authToken cookie is set
+if(isset($_COOKIE["authToken"])) {
+    // authToken cookie is set, continue with the restricted page logic
+    $authToken = $_COOKIE["authToken"];
+
+    // Retrieve user data based on the authToken
+    $sql = "SELECT * FROM users WHERE auth_token='$authToken'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // User is authenticated, you can continue with the restricted page logic
+    } else {
+        // User is not authenticated, redirect to login page
+        header("Location: ../login/login.html");
+        exit();
+    }
+} else {
+    // authToken cookie is not set, redirect to login page
+    // header("Location: ../login/login.html");
+    die("something");
+    exit();
+}
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
