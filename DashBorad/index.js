@@ -22,11 +22,12 @@ Orders.forEach(order => {
 
     const tr = document.createElement('tr');
     const trContent = `
-                        <td>${order.productName}</td>
-                        <td>${order.productNumber}</td>
-                        <td>${order.paymentStatus}</td>
-                        <td class="${order.shipping === 'Declined' ? 'danger' : order.shipping === 'pending' ? 'warning' : 'primary'}">${order.shipping}</td>
-                        <td class="primary">Details</td>
+                        <td>${order.Government_department}</td>
+                        <td>${order.type}</td>
+                        <td>${order.path_person}</td>
+                        <td class="${order.image_path === 'Declined' ? 'danger' : order.shipping === 'pending' ? 'warning' : 'primary'}">${order.date}</td>
+                        <td class="primary">${order.date}</td>
+                        <td>${order.note}<
                         `;
     tr.innerHTML = trContent;
     document.querySelector('table tbody').appendChild(tr);

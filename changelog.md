@@ -17,6 +17,6 @@ CREATE TABLE users (
 - added `handleLogin.php` file to handle employee login, similarly you can handle citizen login.
 - changed `DashBorad/index.html` to `index.php` to handle redirecting the user to `login` page if not logged in.
 
-
+- removed the link to `orders.js` and instead defined `Orders` insided `index.php`, and made php fill the array of objects.
 
 
